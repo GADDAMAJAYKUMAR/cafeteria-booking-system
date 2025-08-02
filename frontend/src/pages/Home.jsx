@@ -9,7 +9,7 @@ const Home = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const heroRef = useRef(null);
 
-  const isLoggedIn = localStorage.getItem('user');
+const isLoggedIn = localStorage.getItem('token');
 
   const handleBookNow = () => {
     isLoggedIn ? navigate('/booking') : setShowPopup(true);
