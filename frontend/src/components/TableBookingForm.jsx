@@ -53,13 +53,26 @@ const TableBookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const email = localStorage.getItem("email"); // ✅ get email from localStorage
+    if (!email) {
+      alert("You must be logged in to book a table.");
+      return;
+    }
+
+    const dataToSend = {
+      ...bookingData,
+      email, // ✅ include email in request
+    };
+
     try {
       await fetch(`${process.env.REACT_APP_API_BASE}/api/bookings/table`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingData)
+        body: JSON.stringify(dataToSend)
       });
-      console.log("Booking Data:", bookingData);
+
+      console.log("Booking Data Sent:", dataToSend);
       alert("✅ Your table has been booked successfully!");
     } catch (error) {
       console.error("Booking failed:", error);
