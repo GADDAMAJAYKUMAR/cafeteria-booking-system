@@ -14,7 +14,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:8081/api/auth/profile', {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/auth/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
