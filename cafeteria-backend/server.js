@@ -25,8 +25,6 @@ mongoose.connect(mongoUri, {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/bookings', require('./routes/bookingRoutes'));
-
-const bookingRoutes = require('./routes/bookings');
 app.use('/api', bookingRoutes);
 
 app.listen(PORT, () => {
