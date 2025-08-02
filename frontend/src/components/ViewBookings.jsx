@@ -10,7 +10,7 @@ const ViewBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:8081/api/bookings`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE}/api/bookings`, {
           params: { email: userEmail }
         });
         setBookings(response.data);
