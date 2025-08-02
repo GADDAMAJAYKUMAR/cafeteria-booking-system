@@ -2,13 +2,13 @@ const Booking = require('../models/Booking');
 
 exports.bookTable = async (req, res) => {
   try {
-    const { restaurant, table, mealType, date, time, seats } = req.body;
+    const { restaurant, table, mealType, date, time, seats, email } = req.body;
 
-    if (!restaurant || !table || !mealType || !date || !time || !seats) {
-      return res.status(400).json({ message: 'All fields are required' });
+
+    if (!restaurant || !table || !mealType || !date || !time || !seats || !email) {
+       return res.status(400).json({ message: 'All fields are required' });
     }
-
-    const newBooking = new Booking({ restaurant, table, mealType, date, time, seats });
+   const newBooking = new Booking({ restaurant, table, mealType, date, time, seats, email });
     await newBooking.save();
 
     res.status(201).json({ message: 'Booking successful', booking: newBooking });
