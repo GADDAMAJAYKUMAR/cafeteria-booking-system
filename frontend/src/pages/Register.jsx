@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
     return;
   }
    try {
-      const response = await fetch('http://localhost:8081/api/auth/register', {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
