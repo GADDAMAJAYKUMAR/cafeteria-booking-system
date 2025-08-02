@@ -34,9 +34,10 @@ const Login = () => {
     }
     
     
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('email', data.user.email); 
-    localStorage.setItem('role', data.user.role);   
+  localStorage.setItem('token', data.token);
+localStorage.setItem('email', data.user.email);
+localStorage.setItem('role', data.user.role);
+localStorage.setItem('user', JSON.stringify(data.user)); 
     
     
     alert(`Login successful! Welcome ${data.user.name}`);
