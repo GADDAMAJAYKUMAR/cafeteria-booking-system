@@ -54,7 +54,7 @@ const TableBookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:8081/api/bookings/table', {
+      await fetch(`${process.env.REACT_APP_API_BASE}/api/bookings/table`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)
